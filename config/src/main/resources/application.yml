@@ -1,28 +1,23 @@
 server:
-  port: 8888
+  port: 8100
 
-eureka:
+eureka: #将该服务（配置中心服务端）注册到注册中心
   instance:
-    hostname: registry
+    hostname: discovery
     prefer-ip-address: true
-    metadata-map:
-      user.name: ${security.user.name}
-      user.password: ${security.user.password}
   client:
     service-url:
-      defaultZone: http://user:${REGISTRY_SERVER_PASSWORD:password}@registry:8761/eureka/
+      defaultZone: http://discovery:8761/eureka/
 
 spring:
+  application:
+    name: config
   cloud:
     config:
-      server:
+      server: #声明该服务是配置中心的服务端
         git:
           uri: https://github.com/maxwellyue/spring-cloud-sample
           search-paths: config-repo
-  rabbitmq:
-    host: rabbitmq
+          username: maxwellyue
+          password: loveyan0906
 
-security:
-  user:
-    name: user
-    password: ${CONFIG_SERVER_PASSWORD:password}

@@ -1,6 +1,6 @@
-package com.seentao.login.controller;
+package com.seentao.account.controller;
 
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.RestController;
 
 /************************************************************************************
@@ -12,7 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
  * 修改人：
  *************************************************************************************/
 @RestController
-@RequestMapping("/api/login")
+@RefreshScope
 public class LoginController {
+
 
 }

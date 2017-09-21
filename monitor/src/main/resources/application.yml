@@ -1,9 +1,9 @@
+server:
+  port: 8040
+
 logging:
   level:
     org.springframework.cloud.netflix.zuul.filters.post.SendErrorFilter: error
-
-server:
-  port: 8040
 
 turbine:
   stream:
@@ -11,16 +11,15 @@ turbine:
 
 eureka:
   instance:
-    hostname: registry
+    hostname: discovery
     prefer-ip-address: true
-    metadata-map:
-      user.name: ${security.user.name}
-      user.password: ${security.user.password}
   client:
     service-url:
-      defaultZone: http://user:${REGISTRY_SERVER_PASSWORD:password}@registry:8761/eureka/
+      defaultZone: http://discovery:8761/eureka/
 
 spring:
+  application:
+      name: monitor
   rabbitmq:
     host: rabbitmq
   boot:
@@ -30,8 +29,3 @@ spring:
       turbine:
         clusters: default
         location: http://monitor:${turbine.stream.port}
-
-security:
-  user:
-    name: admin
-    password: ${MONITOR_SERVER_PASSWORD:admin}

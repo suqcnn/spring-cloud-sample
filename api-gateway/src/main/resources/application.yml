@@ -1,0 +1,37 @@
+server:
+  port: 8060
+
+spring:
+  application:
+    name: api-gateway
+
+
+eureka:
+  instance:
+    hostname: discovery
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://discovery:8761/eureka/
+
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 20000
+
+ribbon:
+  ReadTimeout: 10000
+  ConnectTimeout: 10000
+
+zuul:
+  ignoredServices: '*'
+  routes:
+    service-account:
+      path: /api/account/**
+      stripPrefix: false
+      sensitiveHeaders:
+
