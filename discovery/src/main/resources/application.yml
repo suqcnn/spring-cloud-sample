@@ -14,3 +14,8 @@ eureka:
     fetchRegistry: false
     service-url:
           defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+
+# 配置monitor监控不需要安全控制，即允许无条件介入
+management:
+  security:
+    enabled: false

@@ -17,14 +17,17 @@
     <description>网关：服务路由、均衡负载、权限校验</description>
 
     <dependencies>
+        <!--引入zuul作为网关服务-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-zuul</artifactId>
         </dependency>
+        <!--引入config，声明本服务是配置中心的客户端，即应用启动时可以从配置中心加载配置文件-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-config</artifactId>
         </dependency>
+        <!--引入eureka，向注册中心声明本服务-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-eureka</artifactId>
@@ -57,6 +60,7 @@
             <groupId>org.springframework.retry</groupId>
             <artifactId>spring-retry</artifactId>
         </dependency>
+        <!--将jmx的操作以http的形式暴露出来-->
         <dependency>
             <groupId>org.jolokia</groupId>
             <artifactId>jolokia-core</artifactId>

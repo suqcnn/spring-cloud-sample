@@ -11,3 +11,6 @@ spring:
           multiplier: 2
           max-attempts: 10
         profile: prod
+
+logging:
+  file: /Users/yue/Downloads/service-account.log

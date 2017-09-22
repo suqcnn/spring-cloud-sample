@@ -4,6 +4,8 @@ server:
 logging:
   level:
     org.springframework.cloud.netflix.zuul.filters.post.SendErrorFilter: error
+  path: /Users/yue/Downloads/
+
 
 turbine:
   stream:
@@ -29,3 +31,18 @@ spring:
       turbine:
         clusters: default
         location: http://monitor:${turbine.stream.port}
+security:
+  user:
+    name: admin
+    password: ${MONITOR_SERVER_PASSWORD:admin}
+
+management:
+  security:
+    enabled: false
+endpoints:
+  health:
+    enabled: true
+    sensitive: false
+  actuator:
+    enabled: true
+    sensitive: false
